@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://kit.fontawesome.com/4e7d00e0a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .square-box {
+            width: 80%; /* Make it responsive by using a percentage */
+            max-width: 400px; /* Set a maximum width */
+            padding: 20px; /* Add padding for text */
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.3);
+            text-align: center; /* Center the text horizontally */
+        }
+
+        .text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 100;
+            color: black;
+        }
+
+        .description {
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 100;
+            color: rgb(39, 39, 39);
+            margin: 10px 0; /* Add margin to separate from the text above and below */
+        }
+
+        .subscribe-box {
+            margin-top: 20px; /* Add margin to separate from the description */
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a shadow to the subscribe box */
+            cursor: pointer; /* Add pointer cursor to the subscribe box */
+        }
+
+        .subscribe-text {
+            font-family: 'Poppins', sans-serif;
+            text-align: left;
+            font-size: 18px;
+            font-weight: 200;
+            color: black;
+            margin: 0;
+        }
+
+        .subscribe-description {
+            font-family: 'Poppins', sans-serif;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 100;
+            color: rgb(39, 39, 39);
+            margin: 0;
+        }
+
+        .loading-icon {
+            display: none;
+            float: right;
+        }
+
+        .checkmark-icon {
+            display: none;
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            float: right;
+        }
+
+        .subscribe-button {
+            margin-top: 20px; /* Add margin to separate from the subscribe box */
+            background-color: black; /* Set button background to black */
+            color: white; /* Set button text color to white */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 100;
+            cursor: not-allowed; /* Set cursor to not-allowed initially */
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Add transitions */
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Add a subtle glow */
+        }
+
+        .subscribe-button:hover {
+            background-color: white; /* Change background to white on hover */
+            color: black; /* Change text color to black on hover */
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.3); /* Enhance the glow on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="square-box">
+        <i class="fa-solid fa-lock"></i>
+        <p class="text">Complete the task.</p>
+        <p class="description">To access the target site and download your free script without viruses, please complete the following stages.</p>
+        <div class="subscribe-box" onclick="handleSubscription(this)">
+            <div class="subscribe-text">Subscribe <i class="fa-brands fa-youtube"></i>
+                <i class="loading-icon fas fa-spinner fa-spin"></i>
+                <i class="checkmark-icon fas fa-check-circle"></i>
+            </div>
+            <div class="subscribe-description">Subscribe to the YouTube Channel</div>
+        </div>
+        <!-- Remove the <a> tag -->
+        <button id="subscribe-button" class="subscribe-button" disabled>Continue
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+    
+    <script>
+        function handleSubscription(subscribeBox) {
+            var loadingIcon = subscribeBox.querySelector('.loading-icon');
+            var checkmarkIcon = subscribeBox.querySelector('.checkmark-icon');
+            var subscribeButton = document.getElementById('subscribe-button');
+    
+            if (!subscribeBox.clicked) {
+                // Simulate a 15-second loading process
+                loadingIcon.style.display = 'inline-flex';
+                subscribeBox.clicked = true;
+    
+                setTimeout(function() {
+                    loadingIcon.style.display = 'none';
+                    checkmarkIcon.style.display = 'inline-flex';
+                    subscribeButton.disabled = false;
+                    subscribeButton.style.cursor = 'pointer';
+    
+                    // Redirect the user to the desired URL when the button is clicked
+                    subscribeButton.addEventListener('click', function() {
+                        window.location.href = 'https://pastebin.com/raw/HCTpTxqR'; // Replace with your desired URL
+                    });
+    
+                    // Reset checkmark icon after 1 second
+                    setTimeout(function() {
+                        checkmarkIcon.style.display = 'none';
+                    }, 10000000000);
+                }, 10000); // Enable button after 15 seconds (15000 milliseconds)
+            }
+            window.open('https://www.youtube.com/channel/UC5Qju8OFIrFo0kpNxQ0HXBQ', '_blank');
+        }
+    </script>
+    
+    
+</body>
+</html>
